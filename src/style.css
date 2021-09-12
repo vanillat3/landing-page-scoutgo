@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  color: #333;
+}
+.landing .text-content, .courses .text-content{
+  @apply text-center md:text-left;
+}
+.container {
+  @apply max-w-6xl;
+}
+nav li a {
+  @apply transition hover:text-yellow-600;
+}
+.btn {
+  @apply px-6 py-2.5 rounded-lg transition;
+}
+.btn-signup {
+  @apply bg-yellow-500 hover:bg-yellow-400 text-yellow-50;
+}
+
+@media (max-width: 768px)
+{
+  nav .logo-icon {
+    @apply flex w-full justify-between items-center;
+    z-index: 9999;
+  }
+  nav ul {
+    position: fixed;
+    @apply inset-0 flex-col py-16 bg-yellow-100;
+    z-index: 99;
+    transform: translateY(-100%);
+    transition: 1s;
+  }
+  nav ul.burger-active {
+    transform: translateY(0);
+  }
+  nav .hamburger {
+    @apply order-first;
+    cursor: pointer;
+  }
+  nav .hamburger .line {
+    display: block;
+    height: 3px;
+    width: 30px;
+    margin-bottom: 4px;
+    background-color: #333;
+  }
+  nav .hamburger .line
+  {
+    transform-origin: 45%;
+    transition: .5s;
+  }
+  nav .hamburger .line.burger-active:first-child
+  {
+    transform: rotate(45deg) translateY(275%);
+  }
+  nav .hamburger .line.burger-active:nth-child(2)
+  {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  nav .hamburger .line.burger-active:nth-child(3)
+  {
+    transform: rotate(-45deg) translateY(-275%);
+  }
+}
